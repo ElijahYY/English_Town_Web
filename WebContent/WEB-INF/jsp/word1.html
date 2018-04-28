@@ -1,0 +1,87 @@
+  <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Town Of English  生词本</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript"src="./word1.js"></script>
+	
+
+</head>
+<body>
+
+<table class="table">
+	<caption>生词本</caption>
+   <thead>
+      <tr>
+         <th>单词</th>
+         <th>解释</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Tanmay</td>
+         <td>Bangalore</td>
+      </tr>
+      <tr>
+         <td>Sachin1</td>
+         <td>Mumbai</td>
+      </tr>
+	   <tr>
+         <td>Sachin2</td>
+         <td>Mumbai</td>
+      </tr>
+	   <tr>
+         <td>Sachin3</td>
+         <td>Mumbai</td>
+      </tr>
+	   <tr>
+         <td>Sachin4</td>
+         <td>Mumbai</td>
+      </tr>
+	   <tr>
+         <td>Sachin5</td>
+         <td>Mumbai</td>
+      </tr>
+	   <tr>
+         <td>Sachin6</td>
+         <td>Mumbai</td>
+      </tr>
+	   <tr>
+         <td>Sachin7</td>
+         <td>Mumbai</td>
+      </tr>
+   </tbody>
+</table>
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	开始复习我的生词
+</button>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					生词本复习中
+				</h4>
+			</div>
+			
+			<div class="modal-body">
+				Apple
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success">已记</button>
+	<!-- 表示一个危险的或潜在的负面动作 -->
+				<button type="button" class="btn btn-danger">未记</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+</body>
+</html>

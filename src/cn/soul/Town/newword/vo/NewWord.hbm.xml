@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+   <hibernate-mapping>
+   	<class name="cn.soul.Town.newword.vo.NewWord" table="newwords">
+   		<id name="nwid" column="nwid">
+   			<generator class="increment"/>
+   		</id>
+   		<property name="level" column="level"></property>
+   		<property name="intime" column="intime"></property>
+   		
+   		<many-to-one name="user" class="cn.soul.Town.user.vo.User" column="uid" lazy="false"></many-to-one>
+   		<many-to-one name="word" class="cn.soul.Town.word.vo.Word" column="wid" lazy="false"></many-to-one>
+   		<many-to-one name="article" class="cn.soul.Town.article.vo.Article" column="aid" lazy="false"></many-to-one>
+   	</class>
+   </hibernate-mapping>
+  

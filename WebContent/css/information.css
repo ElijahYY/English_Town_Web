@@ -1,0 +1,154 @@
+#headname{
+height: 70px;
+background-color:#d71202;
+width: 1334px;
+position:fixed;	
+top: 0;
+left: 0;
+right: 0;
+margin:0 auto;
+width: auto;
+}
+.titlename{
+	font-family: "寰蒋闆呴粦";
+	font-size: 45px;
+	line-height: 65px;
+}
+.colorblue{
+	color: blue;
+}
+.colorgray{
+	color:gainsboro;
+}
+.fl{
+	float: left;
+}
+.f2{
+	float: right;
+	margin-right: 10px;
+	margin-top: -20px;
+	font-size: 14px;
+}
+.w{
+	width: 900px;
+	margin: 0 auto;
+}
+.tilew{
+	left: 50%;
+	height: 70px;
+	background-color:#fff;	
+}
+.fr{
+	float: left;
+}
+ul li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.fr a:hover{
+	color: blue;
+}
+.f2 a:hover{
+	color:red;
+}
+#headname .tilew ul li{
+	line-height: 70px;
+	width: 70px;
+	text-align: center;
+	font-size: 16px;
+}
+ul{
+	margin: 0px;
+}
+.kong{
+	height: 60px;
+}
+.center{
+	height: auto;
+	background-color: white;
+	border: gainsboro solid 8px;/*杈规鍜屽儚绱犺缃�*/
+	border-top: gainsboro solid 10px;/*杈规鍜屽儚绱犺缃�*/
+	
+}
+.change{
+	margin-left: 20px;
+	margin-top: 10px;
+}
+#button1{
+	width:100px;
+	height: 40px;
+	color:#d71202;
+}
+#button2{
+	width:100px;
+	height: 36px;
+	color:#d71202;
+}
+.headimg{
+	height: 500px;
+	//border: gainsboro solid 2px;/*杈规鍜屽儚绱犺缃�*/
+}
+.headimg img{
+	float: left;
+	width: 150px;
+	height: 150px; 
+	margin-left: 210px;
+	margin-top: 60px;
+  	border: gainsboro solid 2px;/*杈规鍜屽儚绱犺缃�*/
+}
+.tatil{
+	height: 200px; 
+	float: left;
+	font-size: 20px;
+	color: #121212;
+	margin-left: 100px;
+	margin-top: 60px;
+}
+.aihao{
+	margin-top: 25px;
+	margin-left: 190px;
+	float: left;
+	text-align: center;
+}
+
+.last{
+	display: inline-block;/*行内块*/
+	vertical-align: top;/*对齐方式  顶部*/
+}
+.list{
+	font-size: 20px;
+	width: 150px;
+	height: 200px;
+	text-align: center;
+	float: left;
+	margin-left: 120px;
+}
+.stady{
+	width:900px;
+	float: left;
+	
+	
+}
+.stady p {
+	font-size: larger;
+	text-align: center;
+	margin-left: -80px;
+}
+.table{
+	text-align: center;
+	width: 900px;
+	height: auto;
+	
+}
+.tail{
+	height: 100px;
+	background-color: slategrey;
+	line-height: 34px;
+	font-size:14px;
+	color: white;
+	text-align: center;	
+	margin-top:-14px	
+}

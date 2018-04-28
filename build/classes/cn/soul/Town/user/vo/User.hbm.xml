@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+   <hibernate-mapping>
+   	<class name="cn.soul.Town.user.vo.User" table="user">
+   		<id name="uid" column="uid">
+   			<generator class="increment" ></generator>
+   		</id>
+   		<property name="email" column="email"></property>
+   		<property name="username" column="username"></property>
+   		<property name="password" column="password"></property>
+   		<property name="sex" column="sex"></property>
+   		<property name="useday" column="useday"></property>
+   		<property name="hcuseday" column="hcuseday"></property>
+   		<property name="cuseday" column="cuseday"></property>
+   		<property name="img" column="img"></property>
+   		<property name="signature" column="signature"></property>
+   		<property name="state" column="state"></property>
+   		<property name="code" column="code"></property>
+   		<property name="lastday" column="lastday"></property>
+   		<property name="testcount" column="testcount"></property>
+   		<property name="cnum" column="cnum"></property>
+   		<property name="correctrate" column="correctrate"></property>
+   		<set name = "newWords" order-by="intime" lazy="false">
+   			<key column="uid"/>
+   			<one-to-many class="cn.soul.Town.newword.vo.NewWord"/>
+   		</set>
+   		<set name = "records" order-by="time" lazy="false">
+   			<key column="uid"/>
+   			<one-to-many class="cn.soul.Town.record.vo.Record"/>
+   		</set>
+   	</class>
+   </hibernate-mapping>
+  

@@ -1,0 +1,48 @@
+
+.img{
+	height: 360px;
+	width: auto;
+	-moz-background-size:100% 100%; 
+	background-size:100% 100%;"
+}
+.minfo{
+	height: 450px;
+}
+.mminfo{
+	position: relative;
+	left: 40%;
+	height: 450px;
+	width: 390px;"
+	
+}
+table{
+	border:2px; 
+	border-spacing:2px;
+	text-align:center;
+}
+.weibu{
+	height: 100px;
+	width: auto;
+	background-color: darkslateblue;
+}
+.weibu .weibusp1{
+	color: gainsboro;
+	position: relative;
+	left: 22%;
+	display: block;
+	margin: 4px;
+}
+.weibu .weibusp2{
+	color: gainsboro;
+	position: relative;
+	left: 25%;
+	display: block;
+	margin: 4px;
+}
+.weibu .weibusp3{
+	color: gainsboro;
+	position: relative;
+	left: 40%;
+	display: block;
+	margin: 4px;
+}

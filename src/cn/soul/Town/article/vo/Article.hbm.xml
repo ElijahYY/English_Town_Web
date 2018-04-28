@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+   <hibernate-mapping>
+   	<class name="cn.soul.Town.article.vo.Article" table="article">
+   		<id name="aid" column="aid">
+   			<generator class="increment"/>
+   		</id>
+   		<property name="title" column="title"></property>
+   		<property name="content" column="content"></property>
+   		<property name="inday" column="inday"></property>
+   		
+   		<property name="istest" column="istest"></property>
+   		<property name="answer" column="answer"></property>
+   		<property name="img" column="img"></property>
+   		<many-to-one name="atype" class="cn.soul.Town.atype.vo.Atype" column="atid" lazy="false"></many-to-one>
+   		<many-to-one name="alevel" class="cn.soul.Town.alevel.vo.Alevel" column="alid" lazy="false"></many-to-one>
+   	</class>
+   </hibernate-mapping>
+  

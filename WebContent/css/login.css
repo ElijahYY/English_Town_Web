@@ -1,0 +1,95 @@
+.headdiv1{height: 150px;
+width: auto;
+position: relative;
+vertical-align: middle;}
+
+body{
+	margin: 0px;
+}
+.headdiv2{position: relative;
+left: 20%;
+top:35%;
+vertical-align: middle;}
+
+
+{color:blue;font-size: 45px;display: inline;}
+
+
+.divimg img{
+	width:1920px;
+	height:350px;
+	margin: 0px;
+	
+}
+
+.wordto{color:blue;
+font-size: 45px;
+display: inline;}
+.wordeng{color:gainsboro;
+font-size: 45px;
+display: inline;}
+
+
+.btnsign{font-size: 30px;
+position: absolute;
+right: 20%;
+top:70px;
+display: inline;
+background-color: rgb(90,180,255);
+color: white;
+border-radius: 5px;}
+
+
+.divimg{height: 385px;
+width: auto;
+-moz-background-size:100% 100%; 
+background-size:100% 100%;
+margin: 0px;
+}
+
+.divlogin1{height: 350px;
+width: auto;}
+
+
+
+.divlogin2{position: relative;
+left: 40%;}
+
+
+.txtword{display: block;
+margin: 20px;}
+
+
+.btn2{display: block;
+margin: 20px;
+background-color: rgb(90,180,255);
+color: white;
+font-size: larger;
+border-radius: 5px;}
+
+
+.footdiv{height: 100px;
+width: auto;
+background-color: darkslateblue;}
+
+
+
+.footsp1{color: gainsboro;
+position: relative;
+left: 22%;
+display: block;
+margin: 4px;}
+
+
+.footsp2{color: gainsboro;
+position: relative;
+left: 25%;
+display: block;
+margin: 4px;}
+
+
+.footsp3{color: gainsboro;
+position: relative;
+left: 40%;
+display: block;
+margin: 4px;}

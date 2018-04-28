@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+   <hibernate-mapping>
+   	<class name="cn.soul.Town.record.vo.Record" table="record">
+   		<id name="rid" column="rid">
+   			<generator class="increment"/>
+   		</id>
+   		<property name="time" column="time"></property>
+   		<property name="correctnum" column="correctnum"></property>
+   		<property name="readtime" column="readtime"></property>
+   		<property name="content" column="content"></property>
+   		
+   		<many-to-one name="user" class="cn.soul.Town.user.vo.User" column="uid" lazy="false"/>
+   		<many-to-one name="article" class="cn.soul.Town.article.vo.Article" column="aid" lazy="false"/>
+   	</class>
+   </hibernate-mapping>

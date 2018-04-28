@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- 配置连接池: -->
+	<!-- 引入外部属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	<!-- 配置C3P0连接池: -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="user" value="${jdbc.user}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+	
+	<!-- Hibernate的相关信息 -->          
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 注入连接池 -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 配置Hibernate的其他的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		<!-- 配置Hibernate的映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>cn/soul/Town/user/vo/User.hbm.xml</value>
+				<value>cn/soul/Town/article/vo/Article.hbm.xml</value>
+				<value>cn/soul/Town/atype/vo/Atype.hbm.xml</value>
+				<value>cn/soul/Town/alevel/vo/Alevel.hbm.xml</value>
+				<value>cn/soul/Town/newword/vo/NewWord.hbm.xml</value>
+				<value>cn/soul/Town/word/vo/Word.hbm.xml</value>
+				<value>cn/soul/Town/record/vo/Record.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 事务管理: -->
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 开启注解事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	
+	
+	<!-- Action的配置 ===========================-->
+	<!-- 首页访问的Action -->
+	<bean id="indexAction" class="cn.soul.Town.index.action.IndexAction" scope="prototype">
+		<property name="atypeService" ref ="atypeService"></property>
+		<property name="articleService" ref ="articleService"></property>
+		<property name="userService" ref ="userService"></property>
+	</bean>
+	<!-- 用户模块的Action -->
+	<bean id="userAction" class="cn.soul.Town.user.action.UserAction" scope="prototype">
+		<property name="userService" ref ="userService"></property>
+		<property name="recordService" ref ="recordService"></property>
+	</bean>
+	<bean id="atypeAction" class="cn.soul.Town.atype.action.AtypeAction" scope="prototype">
+		<property name="articleService" ref ="articleService"></property>
+		<property name="atypeService" ref ="atypeService"></property>
+		<property name="alevelService" ref ="alevelService"></property>
+	</bean>
+	<bean id="articleAction" class="cn.soul.Town.article.action.ArticleAction" scope="prototype">
+		<property name="articleService" ref ="articleService"></property>
+		<property name="atypeService" ref ="atypeService"></property>
+		<property name="userService" ref ="userService"></property>
+		<property name="recordService" ref ="recordService"></property>
+	</bean>
+	<bean id="alevelAction" class="cn.soul.Town.alevel.action.AlevelAction" scope="prototype">
+		<property name="alevelService" ref ="alevelService"></property>
+		<property name="atypeService" ref ="atypeService"></property>
+	</bean>
+	<!-- 生词本的Action配置 -->
+	<bean id="newWordAction" class="cn.soul.Town.newword.action.NewWordAction" scope="prototype">
+		<property name="newWordService" ref ="newWordService"></property>
+		<property name="wordService" ref ="wordService"></property>
+		<property name="articleService" ref ="articleService"></property>
+		<property name="userService" ref ="userService"></property>
+	</bean>
+	<!-- 单词Action配置 -->
+	<bean id="wordAction" class="cn.soul.Town.word.action.WordAction" scope="prototype">
+		<property name="wordService" ref ="wordService"></property>
+		<property name="userService" ref ="userService"></property>
+		<property name="newWordService" ref ="newWordService"></property>
+	</bean>
+	<bean id="recordAction" class="cn.soul.Town.record.action.RecordAction" scope="prototype">
+		<property name="recordService" ref ="recordService"></property>
+		<property name="userService" ref ="userService"></property>
+		<property name="articleService" ref ="articleService"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- Service的配置  ===========================-->
+	<bean id="userService" class="cn.soul.Town.user.service.UserService">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="atypeService" class="cn.soul.Town.atype.service.AtypeService">
+		<property name="atypeDao" ref="atypeDao"></property>
+	</bean>
+	<bean id="articleService" class="cn.soul.Town.article.service.ArticleService">
+		<property name="articleDao" ref="articleDao"></property>
+	</bean>
+	<bean id="alevelService" class="cn.soul.Town.alevel.service.AlevelService">
+		<property name="alevelDao" ref="alevelDao"></property>
+	</bean>
+	<!-- 生词本的Service -->
+	<bean id="newWordService" class="cn.soul.Town.newword.service.NewWordService">
+		<property name="newWordDao" ref="newWordDao"></property>
+	</bean>
+	<!-- 单词Service -->
+	<bean id="wordService" class="cn.soul.Town.word.service.WordService">
+		<property name="wordDao" ref="wordDao"></property>
+	</bean>
+	<bean id="recordService" class="cn.soul.Town.record.service.RecordService">
+		<property name="recordDao" ref="recordDao"/>
+	</bean>
+	
+	
+	
+	
+	
+	<!-- Dao的配置  ===========================-->
+	<bean id="userDao" class="cn.soul.Town.user.dao.UserDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="atypeDao" class="cn.soul.Town.atype.dao.AtypeDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="articleDao" class="cn.soul.Town.article.dao.ArticleDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="alevelDao" class="cn.soul.Town.alevel.dao.AlevelDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 生词本dao -->
+	<bean id="newWordDao" class="cn.soul.Town.newword.dao.NewWordDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 单词dao配置 -->
+	<bean id="wordDao" class="cn.soul.Town.word.dao.WordDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="recordDao" class="cn.soul.Town.record.dao.RecordDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>
